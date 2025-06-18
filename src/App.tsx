@@ -19,7 +19,7 @@ async function App() {
   // useEffect(()=>{
   //   // track = FetchTracks(); 
   // },[]);
-  // return (
+  return (
     <>
       <Navbar/>
       <Header/>

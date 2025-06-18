@@ -5,25 +5,7 @@ import { Soundcloud } from "soundcloud.ts"
 //   const CLIENT_ID = 'T26Olo5VaFwfbJtWjYtvIFx3vOe4v84D';
 //   const playlistId = '1797678345';
 //   // const soundcloud = new Soundcloud('T26Olo5VaFwfbJtWjYtvIFx3vOe4v84D',"2-304104-1193079238-nEkoxdB9GHVCv");
-//   // const track = await soundcloud.tracks.get("succducc/azure").then(newtrack => newtrack.title);
-//   // return track;
-//   // <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1797678345&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/idla" title="Best Playlists Ever" target="_blank" style="color: #cccccc; text-decoration: none;">Best Playlists Ever</a> · <a href="https://soundcloud.com/idla/sets/the-fabulous-thunderbirds" title="The Fabulous Thunderbirds - Struck Down" target="_blank" style="color: #cccccc; text-decoration: none;">The Fabulous Thunderbirds - Struck Down</a></div>
 
-//   try {
-//     const response = await fetch(
-//       `https://api.soundcloud.com/playlists/${playlistId}?client_id=${CLIENT_ID}`
-//     );
-    
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! status: ${response.status}`);
-//     }
-    
-//     const playlist = await response.json();
-//     return playlist.tracks; // Array of track objects
-//   } catch (error) {
-//     console.error('Error fetching playlist:', error);
-//     return [];
-//   }
 // }
 
 export const localTracks: LocalTrack[] = [

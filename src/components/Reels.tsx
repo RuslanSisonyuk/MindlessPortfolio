@@ -92,7 +92,7 @@ export default function Reels(){
             <CarouselContent>
               {videos.map((video) => {
                 return (
-                <CarouselItem className="md:basis-1/2 lg:basis-1/4 py-5">
+                <CarouselItem className="md:basis-1/2 lg:basis-1/4 py-5" key={ video.id }>
                   <div className={video.id === selectedVideo.id ? "flex translate-y-[-10px] transition shadow-xl justify-center" : "flex transition justify-center shadow-md"}>
                     <img src={video.thumbnail} alt={ "select video " + video.title }
                       className="cursor-pointer rounded-[2px] w-full"

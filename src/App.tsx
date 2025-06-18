@@ -11,20 +11,14 @@ import { Button } from './components/ui/button'
 
 // import { FetchTracks } from './components/Data/localTrackList'
 
-async function App() {
+function App() {
   const contactRef = useRef(null);
-  // // const track = useMemo(()=>FetchTracks(),[]);
-  // let track:any=undefined;
 
-  // useEffect(()=>{
-  //   // track = FetchTracks(); 
-  // },[]);
   return (
     <>
       <Navbar/>
       <Header/>
       
-      {/* <Button className='biggyG font-title w-[5rem] bg-bg-primary' onClick={ () => console.log(track) }>TEST TRACK</Button> */}
 
       <main className='flex flex-col w-full pt-[5rem] min-h-[100vh] pt-[10rem] gap-[18rem]'>
         <div className='flex flex-col justify-center self-center w-full max-w-[90%] md:max-w-[90%] lg:max-w-[75%] xl:max-w-[60%] gap-[5rem] gap-[20rem]'>

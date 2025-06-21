@@ -43,7 +43,7 @@ export default function Reels(){
   })
 
   // const [selectedVideo, setSelectedVideo] = useState<any>(null);
-  const [videos, setVideos] = useState<any[]>([]); 
+  const [videos, setVideos] = useState<FormattedVideo[]>([]); 
   // const [isLoadingPlaylist, setIsLoadingPlaylist] = useState(false)
   // const [playlistError, setPlaylistError] = useState<string | null>(null)
 

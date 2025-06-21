@@ -1,12 +1,42 @@
 import { Suspense, useEffect, useState } from "react";
 import VideoEmbed from "./VideoEmbed";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import { FormattedVideo, YouTubeErrorResponse, YouTubePlaylistItem, YouTubePlaylistResponse,  } from "./Types/youtube-api";
 
+
+  // Type guard to validate playlist item
+  const isValidPlaylistItem = (item: YouTubePlaylistItem): boolean => {
+    return (!!(
+      item.snippet &&
+      item.snippet.title &&
+      item.snippet.title !== "Deleted video" &&
+      item.snippet.title !== "Private video" &&
+      item.snippet.resourceId &&
+      item.snippet.resourceId.videoId
+    ))
+  }
+
+  const isErrorResponse = (data: YouTubePlaylistResponse | YouTubeErrorResponse): data is YouTubeErrorResponse => {
+    return "error" in data
+  }
+
+  // Function to format a single video item
+  const formatVideo = (item: YouTubePlaylistItem): FormattedVideo => {
+    return {
+      id: item.snippet.resourceId.videoId,
+      title: item.snippet.title,
+      thumbnail:
+        item.snippet.thumbnails.medium?.url ||
+        item.snippet.thumbnails.default?.url ||
+        "/placeholder.svg?height=100&width=180",
+      description: item.snippet.description || "",
+    }
+  }
 
 export default function Reels(){
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState<string | null>(null);
   const [selectedVideo, setSelectedVideo] = useState({
     id: "",
     title: "Rick Astley - Never Gonna Give You Up",
@@ -14,18 +44,18 @@ export default function Reels(){
 
   // const [selectedVideo, setSelectedVideo] = useState<any>(null);
   const [videos, setVideos] = useState<any[]>([]); 
-  const [isLoadingPlaylist, setIsLoadingPlaylist] = useState(false)
-  const [playlistError, setPlaylistError] = useState<string | null>(null)
+  // const [isLoadingPlaylist, setIsLoadingPlaylist] = useState(false)
+  // const [playlistError, setPlaylistError] = useState<string | null>(null)
 
-  const defaultPlaylistId = "PLkxXQ3ugQK2PEUO9a2_FZMmXGXy83P4XN";
+  const defaultPlaylistId = process.env.NEXT_PUBLIC_YT_PLAYLIST_ID;
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
   
   // Function to load YouTube playlist
   const fetchPlaylistVideos = async (id: string) => {
     if (!id) return
 
-    setIsLoading(true)
-    setError(null)
+    // setIsLoading(true)
+    // setError(null)
 
     try {
       const response = await fetch(
@@ -38,19 +68,23 @@ export default function Reels(){
         throw new Error(errorData.error?.message || "Failed to fetch from YouTube API")
       }
 
-      const data = await response.json()
+      const data: YouTubePlaylistResponse | YouTubeErrorResponse  = await response.json()
+      // console.log("DATA:", data.items[0]?.snippet.title, "TYPE OF:", typeof data.items[0]?.snippet)console.log(data);
+      console.log(typeof data);
+
+      if (isErrorResponse(data)) {
+        throw new Error(data.error.message || "Failed to fetch from YouTube API")
+      }
 
       // Filter out deleted/private videos
-      const validItems = data.items.filter(
-        (item: any) => item.snippet.title !== "Deleted video" && item.snippet.title !== "Private video",
-      )
+      const validItems: YouTubePlaylistItem[] = data.items.filter(isValidPlaylistItem);
 
-      const formattedVideos = validItems.map((item: any) => ({
-        id: item.snippet.resourceId.videoId,
-        title: item.snippet.title,
-        thumbnail: item.snippet.thumbnails.medium?.url || "/placeholder.svg?height=100&width=180",
-        description: item.snippet.description,
-      }))
+      if (validItems.length === 0) {
+        throw new Error("No valid videos found in this playlist")
+      }
+
+      // Format videos with proper typing
+      const formattedVideos: FormattedVideo[] = validItems.map(formatVideo)
 
       setVideos(formattedVideos)
 
@@ -59,9 +93,10 @@ export default function Reels(){
         setSelectedVideo(formattedVideos[0])
       }
     } catch (error) {
-      setError(error instanceof Error ? error.message : "Failed to load playlist")
+      // setError(error instanceof Error ? error.message : "Failed to load playlist")
+      console.log("Error: ", error)
     } finally {
-      setIsLoading(false)
+      // setIsLoading(false)
     }
   }
 
@@ -71,9 +106,9 @@ export default function Reels(){
     }
   }, [defaultPlaylistId])
 
-  const handleLoadPlaylist = () => {
-    fetchPlaylistVideos(defaultPlaylistId)
-  }
+  // const handleLoadPlaylist = () => {
+  //   fetchPlaylistVideos(defaultPlaylistId)
+  // }
 
     return(
         <section id="reels" className='flex flex-col justify-center content-center w-full m-0 p-0'>

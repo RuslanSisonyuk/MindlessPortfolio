@@ -21,7 +21,7 @@ export default function VideoEmbed(
 }: VideoEmbedProps
 ){
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const [error] = useState<string | null>(null);
 
     const getEmbedUrl = () => {
         return `https://www.youtube.com/embed/${videoId}?autoplay=${autoPlay ? 1 : 0}`

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useRef } from 'react'
 import './App.css'
 import Aboutme from './components/ui/Aboutme'
 import Reels from './components/Reels'
@@ -6,8 +6,6 @@ import LocalMusicGridComponent from './components/localplaylistgrid'
 import { motion, useTransform, useScroll,useMotionTemplate } from 'framer-motion'
 import Navbar from './components/ui/navbar'
 import Footer from './components/ui/Footer'
-import { Soundcloud } from "soundcloud.ts"
-import { Button } from './components/ui/button'
 
 // import { FetchTracks } from './components/Data/localTrackList'
 

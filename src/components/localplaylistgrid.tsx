@@ -4,9 +4,9 @@ import { LocalTrack } from "./Types/localTrack"
 import { localTracks } from "./Data/localTrackList"
 import { useState, useEffect, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
+// import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Slider } from "@/components/ui/slider"
@@ -14,9 +14,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import {
   Play,
   Pause,
-  Heart,
-  Share2,
-  ExternalLink,
   Loader2,
   Grid,
   Music,
@@ -262,12 +259,12 @@ function LocalMusicGrid() {
   })
 
   // Display options
-  const [cardSize, setCardSize] = useState<"small" | "medium" | "large">("small")
+  const [cardSize] = useState<"small" | "medium" | "large">("small")
   const [showWaveform, setShowWaveform] = useState(true)
-  const [showStats, setShowStats] = useState(true)
+  const [showStats] = useState(true)
   const [filterAlbum, setFilterAlbum] = useState("all")
   const [sortBy, setSortBy] = useState<"dateAdded" | "title" | "album" | "duration">("dateAdded")
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery] = useState("")
 
   // Filter and sort tracks
   const processedTracks = tracks

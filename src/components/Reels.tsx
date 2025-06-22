@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useState } from "react";
 import VideoEmbed from "./VideoEmbed";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
-import { FormattedVideo, YouTubeErrorResponse, YouTubePlaylistItem, YouTubePlaylistResponse,  } from "./Types/youtube-api";
+import { FormattedVideo } from "./Types/youtube-api";
 import { getServerSideProps } from "@/app/api/yt_playlist/route";
 
 
@@ -30,7 +30,7 @@ export default function Reels(){
   const fetchPlaylistVideos = async () => {
 
     try {
-      let formattedVideos = await getServerSideProps();
+      const formattedVideos = await getServerSideProps();
 
       setVideos(formattedVideos)
 

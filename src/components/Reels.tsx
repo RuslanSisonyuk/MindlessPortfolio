@@ -35,9 +35,7 @@ export default function Reels(){
       setVideos(formattedVideos)
 
       // Set the first video as selected
-      if (formattedVideos.length > 0) {
-        setSelectedVideo(formattedVideos[0])
-      }
+     
     } catch (error) {
       // setError(error instanceof Error ? error.message : "Failed to load playlist")
       console.log("Error: ", error)
@@ -47,17 +45,20 @@ export default function Reels(){
   }
 
   useEffect(() => {
-    try{
-      fetchPlaylistVideos()
-    } 
-    catch(error){
-      console.log(error)
-    }
+    fetch('/api/yt_playlist')
+      .then(res => res.json())
+      .then(data => {
+        if (data.error) {
+          console.error('API Error:', data.error)
+        } else {
+          setVideos(data.videos)
+          if (data.videos.length > 0) {
+            setSelectedVideo(data.videos[0])
+          }
+        }
+      })
+      .catch(error => console.error('Fetch error:', error))
   }, [])
-
-  // const handleLoadPlaylist = () => {
-  //   fetchPlaylistVideos(defaultPlaylistId)
-  // }
 
     return(
         <section id="reels" className='flex flex-col justify-center content-center w-full m-0 p-0'>

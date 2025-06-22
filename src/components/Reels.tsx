@@ -2,13 +2,6 @@ import { Suspense, useEffect, useState } from "react";
 import VideoEmbed from "./VideoEmbed";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import { FormattedVideo } from "./Types/youtube-api";
-import { getServerSideProps } from "@/app/api/yt_playlist/route";
-
-
-
-
-  // Function to format a single video item
-
 
 export default function Reels(){
   // const [isLoading, setIsLoading] = useState(false);
@@ -20,29 +13,6 @@ export default function Reels(){
 
   // const [selectedVideo, setSelectedVideo] = useState<any>(null);
   const [videos, setVideos] = useState<FormattedVideo[]>([]); 
-  // const [isLoadingPlaylist, setIsLoadingPlaylist] = useState(false)
-  // const [playlistError, setPlaylistError] = useState<string | null>(null)
-
-  // const defaultPlaylistId = process.env.NEXT_PUBLIC_YT_PLAYLIST_ID;
-  // const apiKey = process.env.NEXT_YOUTUBE_API_KEY;
-  
-  // Function to load YouTube playlist
-  const fetchPlaylistVideos = async () => {
-
-    try {
-      const formattedVideos = await getServerSideProps();
-
-      setVideos(formattedVideos)
-
-      // Set the first video as selected
-     
-    } catch (error) {
-      // setError(error instanceof Error ? error.message : "Failed to load playlist")
-      console.log("Error: ", error)
-    } finally {
-      // setIsLoading(false)
-    }
-  }
 
   useEffect(() => {
     fetch('/api/yt_playlist')
@@ -87,8 +57,6 @@ export default function Reels(){
                 </CarouselItem>
                 )
               })}
-              
-              
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />

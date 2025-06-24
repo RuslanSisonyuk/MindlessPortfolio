@@ -20,7 +20,7 @@ export default function Footer(props: FooterProps){
 
                 <div className='flex flex-col text-left gap-[2rem] text-[1rem]/6 w-full md:max-w-[50%] pt-[1.6rem]'>
                     <p>
-                    I love getting involved and helping other developers create new and exciting games.<br/> So lets have a chat and see how I can help you and your team achieve your creative vision and more!
+                    I'm always eager to be involved with creating memorable and exciting experiences.<br/> So lets have a chat and see how I can help you and your team achieve your creative vision and more!
                     </p>
 
                     <p>Email: I.am.Mindless@gmail.com</p>

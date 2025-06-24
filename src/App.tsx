@@ -29,7 +29,8 @@ function App() {
         <div id="portfolio" className='flex flex-col justify-center self-center w-full max-w-[90%] md:max-w-[90%] lg:max-w-[75%] xl:max-w-[60%] gap-[4rem] mb-[0rem] '>
           <section className='flex flex-col justify-center self-center'>
             <p className='font-title m-0 text-[1.4rem] md:text-[1.6rem] lg:text-[2rem] reels-title relative'>PORTFOLIO</p>
-            <p className='text-[1rem]/7 md:text-[1.2rem]/7 font-light max-w-[30rem]'>Description of the work. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <p className='text-[1rem]/7 md:text-[1.2rem]/7 font-light max-w-[30rem]'>
+            Explore a curated selection of my sound design work — from cinematic atmospheres and immersive game audio to detailed Foley and experimental soundscapes. Each project showcases a unique approach to storytelling through sound.</p>
           </section>
           <section className='flex flex-row justify-center content-center w-full m-0 p-0 pb-[4rem] bg-bg-background rounded-t-[4px] inset-shadow-bottom'>
             <LocalMusicGridComponent></LocalMusicGridComponent>
@@ -83,9 +84,9 @@ const Testimonial = () => {
       />
       <div className='flex flex-col self-center max-w-[80%] lg:max-w-[50%]'>
         <p className='text-light-text font-thin italic text-[1.6rem]/7 lg:text-[2rem]/14 '>
-          Eduardo is a gifted, inventive, and adaptable sound designer who has made himself essential to the project; his work has changed the way I think about my game.
+        "Working with Arthur Lanca was a game-changer for our project. His sound design elevated the entire experience — immersive, precise, and emotionally impactful."
         </p>
-        <p className='text-light-text text-[1rem] md:text-[1.2rem] font-thin mt-4 italic'>Somuel r. Bloke, Grove Street</p>
+        <p className='text-light-text text-[1rem] md:text-[1.2rem] font-thin mt-4 italic'>Johnathan Pamon, 'Game Studio'</p>
       </div>
     </section>
   );

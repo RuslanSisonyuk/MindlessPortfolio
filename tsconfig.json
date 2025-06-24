@@ -20,17 +20,17 @@
         "name": "next"
       }
     ],
-    "target": "ES2017",
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "es6"
     ],
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true
   },

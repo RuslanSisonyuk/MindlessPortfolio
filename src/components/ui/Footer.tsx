@@ -23,21 +23,21 @@ export default function Footer(props: FooterProps){
                     I'm always eager to be involved with creating memorable and exciting experiences.<br/> So lets have a chat and see how I can help you and your team achieve your creative vision and more!
                     </p>
 
-                    <p>Email: I.am.Mindless@gmail.com</p>
+                    <p>Email: Arthur.lanca.work@gmail.com</p>
 
-                    <p>+777 777 777</p>
+                    <p>(+351)967-386-920</p>
                 </div>
             </section>
 
             <section className='flex flex-row gap-[2rem]'>
-                <a href="https://www.instagram.com" target="_blank">
+                <a href="https://www.instagram.com/arthur.lanca?igsh=MXQ1YXJwajZ0dTN2eQ==" target="_blank">
                     <img src="\assets\instagram-icon.svg" alt="" className='max-w-[30px]'/>
                 </a>
-                <a href="https://www.x.com" target="_blank">
+                {/* <a href="https://www.x.com" target="_blank">
                     <img src="\assets\twitter-x-icon.svg" alt="" className='max-w-[30px]'/>
-                </a>
-                <a href="https://www.discord.com" target="_blank">
-                    <img src="\assets\discord-icon.svg" alt="" className='max-w-[30px]'/>
+                </a> */}
+                <a href="https://www.discord.com/users/339814802841141249" target="_blank">
+                    <img src="\assets\discord-icon.svg" alt="i.am.mindless" className='max-w-[30px]'/>
                 </a>
             </section>
         </footer>

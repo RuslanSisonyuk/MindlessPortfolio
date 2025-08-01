@@ -32,7 +32,7 @@ export default function Reels(){
 
     return(
         <section id="reels" className='flex flex-col justify-center content-center w-full m-0 p-0'>
-          <span className="reels-title relative font-title text-[1.4rem] md:text-[1.6rem] lg:text-[2rem] mb-[25px]">SOUND DESIGN REELS</span>
+          <span className="reels-title relative font-title text-[1.4rem] md:text-[1.6rem] lg:text-[2.2rem] mb-[30px]">SOUND DESIGN REELS</span>
           <div className="relative mb-[50px]">
             <div className="block absolute top-[-15px] left-[3%] bg-bg-secondary w-[95%] h-[20px]"></div>
             <Suspense fallback={<div className="h-80 bg-slate-200 flex items-center justify-center">Loading video player...</div>}>

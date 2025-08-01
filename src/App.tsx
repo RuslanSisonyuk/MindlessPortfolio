@@ -18,7 +18,7 @@ function App() {
       <Header/>
       
 
-      <main className='flex flex-col w-full pt-[5rem] min-h-[100vh] pt-[10rem] gap-[18rem]'>
+      <main className='flex flex-col w-full pt-[5rem] min-h-[100vh] pt-[8rem] gap-[18rem]'>
         <div className='flex flex-col justify-center self-center w-full max-w-[90%] md:max-w-[90%] lg:max-w-[75%] xl:max-w-[60%] gap-[5rem] gap-[20rem]'>
           <Reels/>
           <Aboutme targetRef={ contactRef }/>
@@ -30,7 +30,8 @@ function App() {
           <section className='flex flex-col justify-center self-center'>
             <p className='font-title m-0 text-[1.4rem] md:text-[1.6rem] lg:text-[2rem] reels-title relative'>PORTFOLIO</p>
             <p className='text-[1rem]/7 md:text-[1.2rem]/7 font-light max-w-[30rem]'>
-            Explore a curated selection of my sound design work — from cinematic atmospheres and immersive game audio to detailed Foley and experimental soundscapes. Each project showcases a unique approach to storytelling through sound.</p>
+            Explore a curated selection of my music. Featuring cinematic compositions, immersive game scores, and experimental pieces. Each track reflects a unique approach to storytelling through melody, rhythm, and atmosphere.
+</p>
           </section>
           <section className='flex flex-row justify-center content-center w-full m-0 p-0 pb-[4rem] bg-bg-background rounded-t-[4px] inset-shadow-bottom'>
             <LocalMusicGridComponent></LocalMusicGridComponent>
@@ -53,7 +54,7 @@ const Header = () => {
   const transform = useMotionTemplate`translateY(${y}px)`;
 
   return( 
-    <header className='flex flex-row bg-bg-primary justify-center shadow-2xl border-t-1 border-t-text-light md:pt-[4rem]  overflow-hidden'>
+    <header className='flex flex-row bg-bg-primary justify-center shadow-2xl border-t-1 border-t-text-light md:pt-[5rem] md:pb-[2rem]  overflow-hidden'>
       <div className=''>
         <motion.img src="/assets/BIG-LOGO-SD.png" alt="LOGO" className={` `} style = {{
             transform
@@ -84,9 +85,9 @@ const Testimonial = () => {
       />
       <div className='flex flex-col self-center max-w-[80%] lg:max-w-[50%]'>
         <p className='text-light-text font-thin italic text-[1.6rem]/7 lg:text-[2rem]/14 '>
-        "Working with Arthur Lanca was a game-changer for our project. His sound design elevated the entire experience — immersive, precise, and emotionally impactful."
+        "I found Mindless' sounds to be fitting very well within my videos. His work is wonderful, exciting. Well done!"
         </p>
-        <p className='text-light-text text-[1rem] md:text-[1.2rem] font-thin mt-4 italic'>Johnathan Pamon, 'Game Studio'</p>
+        <p className='text-light-text text-[1rem] md:text-[1.2rem] font-thin mt-4 italic'>@MarkusK, YouTube Creator</p>
       </div>
     </section>
   );
